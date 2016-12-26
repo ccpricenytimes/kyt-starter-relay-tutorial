@@ -1,8 +1,10 @@
 
 import React from 'react';
+import Relay from 'react-relay';
 import styles from './styles.scss';
 
-function Home() {
+function Home(props) {
+  console.log('working?', props.user);
   return (
     <section>
       <p className={styles.paragraph}>
@@ -18,4 +20,12 @@ function Home() {
   );
 }
 
-export default Home;
+export default Relay.createContainer(Home, {
+  fragments: {
+    user: () => Relay.QL`
+      fragment on User {
+        isBountyHunter
+      }
+    `,
+  },
+});

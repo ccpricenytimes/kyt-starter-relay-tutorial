@@ -7,17 +7,22 @@
   "license": "",
   "dependencies": {
     "babel-preset-kyt-react": "0.1.0-alpha.1",
+    "babel-relay-plugin": "^0.10.0",
     "html-webpack-plugin": "^2.22.0",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
-    "react-router": "^2.6.1"
+    "react-relay": "^0.10.0",
+    "react-router": "^2.6.1",
+    "react-router-relay": "^0.13.5"
   },
   "devDependencies": {
     "enzyme": "^2.4.1",
-    "react-addons-test-utils": "^15.3.0",
-    "kyt": "file:../kyt/packages/kyt-core"
+    "graphql": "^0.8.2",
+    "kyt": "file:../kyt/packages/kyt-core",
+    "react-addons-test-utils": "^15.3.0"
   },
   "scripts": {
+    "update-schema": "node tools/updateSchema.js",
     "dev": "kyt dev",
     "build": "kyt build",
     "start": "node build/server/main.js",

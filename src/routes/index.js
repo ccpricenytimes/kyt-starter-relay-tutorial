@@ -1,6 +1,7 @@
 
 import React from 'react';
 import Route from 'react-router/lib/Route';
+import Relay from 'react-relay';
 import IndexRoute from 'react-router/lib/IndexRoute';
 import App from '../components/App';
 
@@ -20,12 +21,30 @@ const importTools = (nextState, cb) => {
     .catch((e) => { throw e; });
 };
 
+const importUser = (nextState, cb) => {
+  System.import('../components/User')
+    .then(module => cb(null, module.default))
+    .catch((e) => { throw e; });
+};
+
+const userLogin = 'coolov';
 // We use `getComponent` to dynamically load routes.
 // https://github.com/reactjs/react-router/blob/master/docs/guides/DynamicRouting.md
 const routes = (
   <Route path="/" component={App}>
-    <IndexRoute getComponent={importHome} />
-    <Route path="tools" getComponent={importTools} />
+    <IndexRoute
+      getComponent={importHome}
+      getQueries={() => ({ user: () => Relay.QL`query { user(login: "coolov") }` })}
+    />
+    <Route
+      path="tools"
+      getComponent={importTools}
+    />
+    <Route
+      path=":userId"
+      getComponent={importUser}
+      getQueries={() => ({ user: () => Relay.QL`query { user(login: $userId) }` })}
+    />
   </Route>
 );
 
@@ -35,6 +54,7 @@ const routes = (
 if (module.hot) {
   require('../components/Home');    // eslint-disable-line global-require
   require('../components/Tools');   // eslint-disable-line global-require
+  require('../components/User');   // eslint-disable-line global-require
 }
 
 export default routes;
