@@ -1,6 +1,10 @@
 
 @import '../../shared-styles/variables';
 
+.heading {
+  text-align: center;
+  font-weight: bold;
+}
 .paragraph + .paragraph {
   padding-top: $padding;
 }

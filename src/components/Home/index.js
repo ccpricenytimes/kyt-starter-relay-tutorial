@@ -4,9 +4,9 @@ import Relay from 'react-relay';
 import styles from './styles.scss';
 
 function Home(props) {
-  console.log('working?', props.user);
   return (
     <section>
+      <h2 className={styles.heading}> Welcome {props.user.login} </h2>
       <p className={styles.paragraph}>
         Welcome to the kyt Relay tutorial.
         This serves as a relay tutorial and a base for a client side app
@@ -24,7 +24,7 @@ export default Relay.createContainer(Home, {
   fragments: {
     user: () => Relay.QL`
       fragment on User {
-        isBountyHunter
+        login
       }
     `,
   },

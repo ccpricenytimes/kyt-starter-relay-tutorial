@@ -30,11 +30,13 @@ const importUser = (nextState, cb) => {
 const userLogin = 'coolov';
 // We use `getComponent` to dynamically load routes.
 // https://github.com/reactjs/react-router/blob/master/docs/guides/DynamicRouting.md
+// Routes contain the root queries for Relay
+// "Queries supplied at the root should contain exactly one fragment and no fields."
 const routes = (
   <Route path="/" component={App}>
     <IndexRoute
       getComponent={importHome}
-      getQueries={() => ({ user: () => Relay.QL`query { user(login: "coolov") }` })}
+      queries={{ user: () => Relay.QL`query { viewer }` }}
     />
     <Route
       path="tools"
@@ -48,13 +50,13 @@ const routes = (
   </Route>
 );
 
-// Unfortunately, HMR breaks when we dynamically resolve
-// routes so we need to require them here as a workaround.
-// https://github.com/gaearon/react-hot-loader/issues/288
-if (module.hot) {
-  require('../components/Home');    // eslint-disable-line global-require
-  require('../components/Tools');   // eslint-disable-line global-require
-  require('../components/User');   // eslint-disable-line global-require
-}
+// // Unfortunately, HMR breaks when we dynamically resolve
+// // routes so we need to require them here as a workaround.
+// // https://github.com/gaearon/react-hot-loader/issues/288
+// if (module.hot) {
+//   require('../components/Home');    // eslint-disable-line global-require
+//   require('../components/Tools');   // eslint-disable-line global-require
+//   require('../components/User');   // eslint-disable-line global-require
+// }
 
 export default routes;

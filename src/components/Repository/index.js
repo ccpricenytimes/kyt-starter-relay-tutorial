@@ -12,6 +12,10 @@ function Repository(props) {
   );
 }
 
+
+// TODO: Try it yourself
+// Try adding the repository description to the component
+// Hint: first find it in the GraphiQL docs so you know its format
 export default Relay.createContainer(Repository, {
   fragments: {
     repo: () => Relay.QL`
