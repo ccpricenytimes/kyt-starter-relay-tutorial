@@ -27,7 +27,6 @@ const importUser = (nextState, cb) => {
     .catch((e) => { throw e; });
 };
 
-const userLogin = 'coolov';
 // We use `getComponent` to dynamically load routes.
 // https://github.com/reactjs/react-router/blob/master/docs/guides/DynamicRouting.md
 // Routes contain the root queries for Relay
@@ -49,14 +48,7 @@ const routes = (
     />
   </Route>
 );
-
-// // Unfortunately, HMR breaks when we dynamically resolve
-// // routes so we need to require them here as a workaround.
-// // https://github.com/gaearon/react-hot-loader/issues/288
-// if (module.hot) {
-//   require('../components/Home');    // eslint-disable-line global-require
-//   require('../components/Tools');   // eslint-disable-line global-require
-//   require('../components/User');   // eslint-disable-line global-require
-// }
-
+// The :userId route uses getQueries because the query depends on data from the route.
+// This means the query will rerun every time the route is accessed.
+// https://github.com/relay-tools/react-router-relay#routes-and-queries
 export default routes;
