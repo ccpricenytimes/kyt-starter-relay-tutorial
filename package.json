@@ -36,6 +36,6 @@
     "kyt:help": "kyt --help"
   },
   "kyt": {
-      "files": "tools/"
+      "files": ["tools/"]
   }
 }
