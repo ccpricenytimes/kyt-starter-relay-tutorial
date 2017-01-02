@@ -34,5 +34,8 @@
     "lint-script": "kyt lint-script",
     "lint-style": "kyt lint-style",
     "kyt:help": "kyt --help"
+  },
+  "kyt": {
+      "files": "tools/"
   }
 }
