@@ -1,10 +1,9 @@
 {
-  "name": "",
-  "version": "1.0.0",
-  "description": "",
-  "main": "",
-  "author": "",
-  "license": "",
+  "name": "kyt-starter-relay-tutorial",
+  "version": "0.1.0",
+  "description": "A tutorial and simple starter-kyt for building client side apps with Relay",
+  "author": "ccpricenytimes",
+  "license": "Apache-2.0",
   "dependencies": {
     "babel-preset-kyt-react": "0.1.0-alpha.1",
     "babel-relay-plugin": "^0.10.0",
