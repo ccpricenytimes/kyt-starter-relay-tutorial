@@ -36,6 +36,7 @@
     "kyt:help": "kyt --help"
   },
   "kyt": {
-      "files": ["tools/", "schema.json", "schema.graphql", ".gitignore"]
+      "files": ["tools/", "schema.json", "schema.graphql", ".gitignore"],
+      "scripts": ["update-schema"]
   }
 }
