@@ -17,7 +17,7 @@
   "devDependencies": {
     "enzyme": "^2.4.1",
     "graphql": "^0.8.2",
-    "kyt": "file:../kyt/packages/kyt-core",
+    "kyt": "0.4.0-rc2",
     "react-addons-test-utils": "^15.3.0"
   },
   "scripts": {
